@@ -39,24 +39,42 @@ body {
 
 .slider-background {
   background: linear-gradient(173.68deg, #ffedf5 0%, #ffd5e7 100%);
-  height: "296px";
-  width: 294.26px;
+  height: 20vh; /* افتراضي للشاشات الصغيرة */
+  width: 100%;
 }
+
 .slider-background2 {
   background: linear-gradient(174.76deg, #d3deff 0%, #a8baff 100%);
-  height: "296px";
-  width: 294.26px;
+  height: 20vh;
+  width: 100%;
 }
+
 .slider-background3 {
   background: linear-gradient(176.69deg, #f8f0d5 0%, #efdcab 100%);
-  height: "296px";
-  width: 294.26px;
+  height: 20vh;
+  width: 100%;
 }
+
 .slider-background4 {
   background: linear-gradient(175.24deg, #b2e8f0 0%, #7bccdc 100%);
-  height: "296px";
-  width: 294.26px;
+  height: 20vh;
+  width: 100%;
 }
+
+/* زيادات في الطول للشاشات المتوسطة */
+@media (min-width: 768px) {
+  .slider-background, .slider-background2, .slider-background3, .slider-background4 {
+    height: 40vh; /* ارتفاع أكبر للشاشات المتوسطة */
+  }
+}
+
+/* زيادات في الطول للشاشات الكبيرة */
+@media (min-width: 1200px) {
+  .slider-background, .slider-background2, .slider-background3, .slider-background4 {
+    height: 50vh; /* ارتفاع أكبر للشاشات الكبيرة */
+  }
+}
+
 .slider-title {
   color: #915970;
   font-family: Almarai;
@@ -692,4 +710,23 @@ body {
 .badge {
   font-size: 12px !important;
 font-weight: bold !important;
+}
+
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 14px; /* تصغير العنوان للشاشات الصغيرة */
+  }
+  .card-price {
+    font-size: 12px; /* تصغير السعر للشاشات الصغيرة */
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-title {
+    font-size: 18px; /* تكبير العنوان للشاشات الكبيرة */
+  }
+  .card-price {
+    font-size: 16px; /* تكبير السعر للشاشات الكبيرة */
+  }
 }

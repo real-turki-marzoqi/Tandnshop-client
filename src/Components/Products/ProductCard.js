@@ -13,69 +13,72 @@ const ProductCard = ({ item, favProd }) => {
     }
 
     return (
-        <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
-            <Card
-                className="my-2"
-                style={{
-                    width: '80%',
-                    height: '360px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    backgroundColor: '#FFFFFF',
-                    boxShadow: '0 2px 2px 0 rgba(151,151,151,0.5)',
-                }}
-            >
-                <Link to={`/products/${item._id}`} style={{ textDecoration: 'none' }}>
-                    <Card.Img style={{ height: '228px', width: '100%' }} src={item.imageCover} alt={item.title} />
-                </Link>
-                <div className="d-flex justify-content-end mx-2">
-                    <img
-                        src={favImg}
-                        alt="favorite icon"
-                        onClick={handelFav}
-                        className="text-center"
-                        style={{
-                            height: '24px',
-                            width: '26px',
-                            cursor: 'pointer',
-                        }}
-                    />
-                </div>
-                <Card.Body>
-                    <Card.Title>
-                        <div className="card-title">
-                            {item.title}
+        <Col xs="6" sm="6" md="4" lg="3" xl="2" className="d-flex">
+        <Card
+            className="my-2"
+            style={{
+                width: '100%',  /* جعل العرض متجاوباً */
+                height: '100%', /* السماح بتغيير الارتفاع حسب الشاشة */
+                borderRadius: '8px',
+                border: 'none',
+                backgroundColor: '#FFFFFF',
+                boxShadow: '0 2px 2px 0 rgba(151,151,151,0.5)',
+            }}
+        >
+            <Link to={`/products/${item._id}`} style={{ textDecoration: 'none' }}>
+                <Card.Img style={{ height: 'auto', width: '100%' }} src={item.imageCover} alt={item.title} />
+            </Link>
+            <div className="d-flex justify-content-end mx-2">
+                <img
+                    src={favImg}
+                    alt="favorite icon"
+                    onClick={handelFav}
+                    className="text-center"
+                    style={{
+                        height: '24px',
+                        width: '26px',
+                        cursor: 'pointer',
+                    }}
+                />
+            </div>
+            <Card.Body>
+                <Card.Title>
+                    <div className="card-title">
+                        {item.title}
+                    </div>
+                </Card.Title>
+                <Card.Text>
+                    <div className="d-flex justify-content-between">
+                        <div className="d-flex">
+                            <img
+                                src={rate}
+                                alt="rating"
+                                height="16px"
+                                width="16px"
+                            />
+                            <div className="card-rate mx-2">{item.ratingsAverage || 0}</div>
                         </div>
-                    </Card.Title>
-                    <Card.Text>
-                        <div className="d-flex justify-content-between">
-                            <div className="d-flex">
-                                <img
-                                    src={rate}
-                                    alt="rating"
-                                    height="16px"
-                                    width="16px"
-                                />
-                                <div className="card-rate mx-2">{item.ratingsAverage || 0}</div>
+                        <div className="d-flex">
+                            <div className="card-price">
+                                {item.priceAfterDiscount && item.priceAfterDiscount < item.price ? (
+                                    <div>
+                                        <span style={{ textDecorationLine: 'line-through' }}>{item.price}</span> {item.priceAfterDiscount}
+                                    </div>
+                                ) : (
+                                    item.price
+                                )}
                             </div>
-                            <div className="d-flex">
-                                <div className="card-price">
-                                    {item.priceAfterDiscount && item.priceAfterDiscount < item.price ? (
-                                        <div>
-                                            <span style={{ textDecorationLine: 'line-through' }}>{item.price}</span> {item.priceAfterDiscount}
-                                        </div>
-                                    ) : (
-                                        item.price
-                                    )}
-                                </div>
-                                <div className="card-currency mx-1">SAR</div>
-                            </div>
+                            <div className="card-currency mx-1">SAR</div>
                         </div>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            <ToastContainer />
-        </Col>
+                    </div>
+                </Card.Text>
+            </Card.Body>
+        </Card>
+        <ToastContainer />
+    </Col>
+    
+        
+        
     );
 };
 
