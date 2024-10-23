@@ -13,7 +13,8 @@ const ProductCard = ({ item, favProd }) => {
     }
 
     return (
-        <Col xs="6" sm="6" md="4" lg="3" xl="2" className="d-flex">
+        <Col xs="6" sm="6" md="4" lg="3" xl="2" className="d-flex mt-4">
+            
         <Card
             className="my-2"
             style={{
@@ -23,10 +24,11 @@ const ProductCard = ({ item, favProd }) => {
                 border: 'none',
                 backgroundColor: '#FFFFFF',
                 boxShadow: '0 2px 2px 0 rgba(151,151,151,0.5)',
+                marginTop:"10px"
             }}
         >
             <Link to={`/products/${item._id}`} style={{ textDecoration: 'none' }}>
-                <Card.Img style={{ height: 'auto', width: '100%' }} src={item.imageCover} alt={item.title} />
+                <Card.Img style={{ height: 'auto', width: '90%' }} src={item.imageCover} alt={item.title} />
             </Link>
             <div className="d-flex justify-content-end mx-2">
                 <img
